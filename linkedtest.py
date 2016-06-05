@@ -3,19 +3,20 @@ from test import Node, LinkedList
 
 
 def test_insert():
-    l_list = LinkedList()
-    l_list.insert("David")
-    assert l_list.head.get_data() == "David"
-    assert l_list.head.get_next() is None
+	l_list = LinkedList()
+	l_list.insert("David")
+	assert l_list.head.get_data() == "David"
+	assert l_list.head.get_next() is None
+	print ("Test Insert Complete")
 
 
 def test_insert_two():
-    l_list = LinkedList()
-    l_list.insert("David")
-    l_list.insert("Thomas")
-    assert l_list.head.get_data() == "Thomas"
-    head_next = l_list.head.get_next()
-    assert head_next.get_data() == "David"
+	l_list = LinkedList()
+	l_list.insert("David")
+	l_list.insert("Thomas")
+	assert l_list.head.get_data() == "Thomas"
+	head_next = l_list.head.get_next()
+	assert head_next.get_data() == "David"
 
 
 def test_nextNode():
@@ -63,6 +64,7 @@ def test_delete():
     assert l_list.head.get_data() == "Pallymay"
     l_list.delete("Jacob")
     assert l_list.head.get_next() is None
+    print ("test delete complete")
 
 
 def test_delete_value_not_in_list():
@@ -89,3 +91,18 @@ def test_delete_next_reassignment():
     l_list.delete("Pallymay")
     l_list.delete("Cid")
     assert l_list.head.next_node.get_data() == "Jacob"
+
+def test_remove_dup():
+	l_list = LinkedList()
+	l_list.insert("Jacob")
+	l_list.insert("Cid")
+	l_list.insert("Pallymay")
+	l_list.insert("Rasmus")
+	l_list.insert("Cid")
+	l_list.insert("Rasmus")
+	l_list.insert("Jonny")
+	l_list.removeDup()
+	l_list.print_list()
+	
+test_insert()
+test_delete()
